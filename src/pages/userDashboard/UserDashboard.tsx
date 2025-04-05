@@ -80,20 +80,24 @@ function UserDashboard() {
 
   return (
     <div className="container mx-auto py-10 min-h-screen relative px-4 md:px-0">
-      <div className="flex justify-between mb-4">
-        <SearchInput setPage={setPage} />
-        <div className="flex gap-2">
-          <Button
-            className="cursor-pointer"
-            variant="link"
-            onClick={() =>
-              theme === "light" ? setTheme("dark") : setTheme("light")
-            }
-          >
-            {theme === "light" ? <Sun /> : <Moon />}
-          </Button>
+      <div className="grid grid-cols-12 space-y-4 mb-4">
+        <div className="col-span-12 sm:col-span-6">
+          <SearchInput setPage={setPage} />
+        </div>
+        <div className="col-span-12 sm:col-span-6">
+          <div className="flex gap-4 w-full justify-start sm:justify-end">
+            <Button
+              className="cursor-pointer"
+              variant="link"
+              onClick={() =>
+                theme === "light" ? setTheme("dark") : setTheme("light")
+              }
+            >
+              {theme === "light" ? <Sun /> : <Moon />}
+            </Button>
 
-          <LimitSelect limit={limit} onLimitChange={handleLimitChange} />
+            <LimitSelect limit={limit} onLimitChange={handleLimitChange} />
+          </div>
         </div>
       </div>
 
